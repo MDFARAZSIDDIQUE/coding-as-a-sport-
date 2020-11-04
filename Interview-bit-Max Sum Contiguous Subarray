@@ -1,0 +1,21 @@
+int maxSubArray(const int* A, int n1) {
+    int i,j=0;
+    int sum=0;
+    int max=0;
+    int maxx=A[0];
+    for(i=0;i<n1;i++){
+        sum=sum+A[i];
+        if(max<sum)
+            max=sum;
+        else if(sum<0){
+            sum=0;
+            j++;
+            if(A[i]>maxx)
+                maxx=A[i];
+        }
+    }
+    if(j==n1)
+        return maxx;
+    else
+        return max;
+}
