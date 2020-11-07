@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    int i,j,n,num,burner1,burner2;
+	scanf("%d",&n);
+	int* b=(int*)malloc(n*sizeof(int));
+	for(i=0;i<n;i++){
+	    scanf("%d",&num);
+	    int* arr=(int*)malloc(num*sizeof(int));
+	    for(j=0;j<num;j++){
+	        scanf("%d",&arr[j]);
+	    }
+	    for(int x=0;x<num;x++){
+            for(int y=0;y<num-x-1;y++){
+                if(arr[y+1]>arr[y]){
+                    int temp=arr[y];
+                    arr[y]=arr[y+1];
+                    arr[y+1]=temp;
+                }
+            }
+	    }
+	    if(num==1){
+	        printf("%d\n",arr[0]);   
+	    }
+	    else{
+            int burner1=arr[0];
+            int burner2=arr[1];
+            for(j=2;j<num;j++){
+                if(burner1<=burner2)
+                    burner1=burner1+arr[j];
+                else
+                    burner2=burner2+arr[j];
+            }
+            (burner1<=burner2)?(printf("%d\n",burner2)):(printf("%d\n",burner1));
+	    }
+	}
+}
