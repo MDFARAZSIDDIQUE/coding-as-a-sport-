@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    int i,j,k,n,num;
+	scanf("%d",&n);
+	//int* b=(int*)malloc(n*sizeof(int));
+	for(i=0;i<n;i++){
+	    scanf("%d",&num);
+	    int* b=(int*)malloc(num*sizeof(int));
+	    for(j=0;j<num;j++){
+	        scanf("%d",&b[j]);
+	    }
+	    int* a=(int*)malloc(num*sizeof(int));
+	    int counter=2*num;
+	    a[num-1]=2*num;
+	    for(j=num-2;j>=0;j--){
+            if(b[j]==j+1){
+                counter--;
+                a[j]=counter;
+            }
+            else{
+                a[j]=a[(b[j]-1)];
+            }
+	    }
+	    for(j=0;j<num;j++){
+            printf("%d ",a[j]);
+	    }
+
+	}
+}
