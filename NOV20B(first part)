@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    int i,j,k,n,num;
+	scanf("%d",&n);
+	for(i=0;i<n;i++){
+	    scanf("%d",&num);
+	    int* a=(int*)malloc(num*sizeof(int));
+	    for(j=0;j<num;j++){
+	        scanf("%d",&a[j]);
+	    }
+	    int* b=(int*)malloc(num*sizeof(int));
+	    for(j=0;j<num;j++){
+            for(k=num-1;k>=j;k--){
+                if(a[k]%a[j]==0){
+                    b[j]=k+1;
+                    break;
+                }
+            }
+	    }
+	    for(j=0;j<num;j++){
+            printf("%d ",b[j]);
+	    }
+	}
+}
