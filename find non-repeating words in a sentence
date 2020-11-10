@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+    char a[1000];
+    gets(a);
+    puts(a);
+    int i=0;
+    int words =1;
+    while(a[i]!='\0'){
+    	i++;
+    	if(a[i]==' ')
+    		words++;
+    }
+	char b[words][500];
+	int h=0,k=0;
+	for(i=0;a[i]!='\0';i++){
+		if(a[i]==' '){
+			b[h][k]='\0';
+			h++;
+			k=0;
+		}
+		else{
+			b[h][k]=a[i];
+			k++;
+		}
+		
+	}
+	for(i=0;i<words;i++){
+		puts(b[i]);
+	}
+	int j;
+	int result=0;
+	for(i=0;i<words;i++){
+		int v=-1;
+		for(j=0;j<words;j++){
+			int d=strcmp(b[i],b[j]);
+			if(d==0){
+				v++;
+			}
+		}
+		if(v==0)
+			result++;
+	}
+	printf("%d",result);
+}
