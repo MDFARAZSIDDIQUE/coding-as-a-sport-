@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main(){
+    int i;
+    int arr[26];
+    for(i=0;i<26;i++){
+    	arr[i]=0;
+    }
+    char h[27];
+    scanf("%s",&h);
+    int d=0;
+    while(h[d]!='\0'){
+    	arr[h[d]-97]=1;
+    	d++;
+    }
+	int count;
+	scanf("%d",&count);
+	for(i=0;i<count;i++){
+		char n[13];
+		scanf("%s",&n);
+		d=0;
+		while(n[d]!='\0'){
+			if(arr[n[d]-97]==0){
+				printf("No\n");
+				break;
+			}
+			if(n[d+1]=='\0')
+				printf("Yes\n");
+			d++;
+		}
+	}
+}
