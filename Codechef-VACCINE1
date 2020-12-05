@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    int d1,v1,d2,v2,vac;
+    scanf("%d %d %d %d %d",&d1,&v1,&d2,&v2,&vac);
+    int day=1;
+    while(vac>0){
+        if(day>=d1){
+            vac-=v1;
+        }
+        if(day>=d2){
+           vac-=v2; 
+        }
+        day++;
+    }
+    printf("%d",day-1);
+    
+}
