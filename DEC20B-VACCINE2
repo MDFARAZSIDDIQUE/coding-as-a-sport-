@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int i,j,k,n,size,cap,vul=0,nvul=0,day=0;
+    int* arr;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        vul=0;
+        nvul=0;
+        day=0;
+        scanf("%d %d",&size,&cap);
+        //printf("size is %d and cap is %d\n",size,cap);
+        if(cap==1){
+            arr= (int*)malloc(size*(sizeof(int)));
+            for(j=0;j<size;j++){
+                scanf("%d",&arr[j]);
+            }
+            
+            //printf("%d\n",size);
+            day=size;
+    	}
+        else{
+            arr= (int*)malloc(size*(sizeof(int)));
+            for(j=0;j<size;j++){
+                scanf("%d",&arr[j]);
+                if(arr[j]>=80 || arr[j]<=9){
+                    vul++;
+                }
+                else
+                    nvul++;
+
+            }
+            day=day+(vul/cap)+(nvul/cap);
+            if(vul%cap>0){
+                day++;
+            }
+            if(nvul%cap>0){
+                day++;
+            }
+        }
+        printf("%d\n",day);
+    }
+
+
+}
+
+
