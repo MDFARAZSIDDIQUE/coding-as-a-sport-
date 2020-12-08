@@ -1,0 +1,10 @@
+n=int(input())
+for i in range(0,n):
+    a,b = input().split(" ")
+    a=int(a)
+    b=int(b)
+    odd_a=(a+1)//2
+    even_a=a-odd_a
+    odd_b=(b+1)//2
+    even_b=b-odd_b
+    print((odd_a*odd_b)+(even_a*even_b))
